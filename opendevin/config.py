@@ -21,6 +21,7 @@ DEFAULT_CONFIG: dict = {
     ConfigType.DIRECTORY_REWRITE: '',
     ConfigType.MAX_ITERATIONS: 100,
     ConfigType.AGENT: 'MonologueAgent',
+    ConfigType.SSH_HOSTNAME: 'localhost'
 }
 
 config_str = ''

@@ -32,6 +32,7 @@ if config.get_or_none('SANDBOX_USER_ID') is not None:
 elif hasattr(os, 'getuid'):
     USER_ID = os.getuid()
 
+SSH_HOSTNAME = config.get_or_default('SSH_HOSTNAME', 'localhost')
 
 class BackgroundCommand:
     def __init__(self, id: int, command: str, result, pid: int):
@@ -190,7 +191,7 @@ class DockerInteractive(CommandExecutor):
     def start_ssh_session(self):
         # start ssh session at the background
         self.ssh = pxssh.pxssh()
-        hostname = 'localhost'
+        hostname = SSH_HOSTNAME
         if RUN_AS_DEVIN:
             username = 'opendevin'
         else:
